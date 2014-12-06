@@ -7,8 +7,8 @@ public class BrownianMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float dx = Random.Range(-intensity, intensity);
-		float dz = Random.Range(-intensity, intensity);
+		float dx = Random.Range(-intensity, intensity) * Time.deltaTime;
+		float dz = Random.Range(-intensity, intensity) * Time.deltaTime;
 		
 		gameObject.transform.Translate(dx, 0, dz);
 	}
