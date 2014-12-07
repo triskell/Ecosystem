@@ -7,14 +7,15 @@ public class Reproduce : MonoBehaviour {
 	
 	// Update is called once per frame
 	void OnCollisionEnter (Collision collision) {
-		string thisName = collision.gameObject.name;
-		string otherName;
+		string thisName, otherName;
 
 		//TODO : delete "(Clone)" at the end of name if needed.
 	
 		foreach (ContactPoint contact in collision.contacts) {
+			thisName = contact.thisCollider.name;
 			otherName = contact.otherCollider.name;
-			print(thisName + " hit " + otherName);
+
+			Debug.Log(thisName + " hit " + otherName);
 			Debug.DrawRay(contact.point, contact.normal, Color.white);
 
 			if( Random.value < ratio && ( thisName.Equals(otherName) || thisName.Equals(otherName + "(Clone)") ) ){
